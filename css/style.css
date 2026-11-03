@@ -1,0 +1,77 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #050505;
+    color: #ffffff;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Temas dinámicos profesionales */
+body.theme-green { --accent-color: #1DB954; }
+body.theme-pink { --accent-color: #ec4899; }
+body.theme-blue { --accent-color: #3b82f6; }
+
+.text-accent { color: var(--accent-color) !important; }
+.bg-accent { background-color: var(--accent-color) !important; }
+.border-accent { border-color: var(--accent-color) !important; }
+.selection\:bg-accent::selection { background-color: var(--accent-color) !important; }
+
+/* Scrollbars */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #050505;
+}
+::-webkit-scrollbar-thumb {
+    background: #202020;
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color);
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 5px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #2a2a2a;
+    border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color);
+}
+
+/* Ecualizador Real */
+@keyframes eqBounce {
+    0% { height: 6px; }
+    50% { height: 22px; }
+    100% { height: 10px; }
+}
+
+.eq-active .eq-bar:nth-child(1) { background-color: var(--accent-color); animation: eqBounce 0.6s infinite ease-in-out; }
+.eq-active .eq-bar:nth-child(2) { background-color: var(--accent-color); animation: eqBounce 0.4s infinite ease-in-out 0.1s; }
+.eq-active .eq-bar:nth-child(3) { background-color: var(--accent-color); animation: eqBounce 0.7s infinite ease-in-out 0.2s; }
+.eq-active .eq-bar:nth-child(4) { background-color: var(--accent-color); animation: eqBounce 0.5s infinite ease-in-out 0.3s; }
+.eq-active .eq-bar:nth-child(5) { background-color: var(--accent-color); animation: eqBounce 0.55s infinite ease-in-out 0.15s; }
+
+/* Transición SPA */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.touch-action-manipulation {
+    touch-action: manipulation;
+}

@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04 Noviembre 💖</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Librería para leer imágenes HEIC en el navegador -->
+    <script src="https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js"></script>
+</head>
+<body id="app-body" class="theme-green bg-[#050505] text-white font-['Plus_Jakarta_Sans'] min-h-screen flex antialiased selection:bg-accent selection:text-black overflow-x-hidden">
+
+    <!-- BOTÓN MENÚ MÓVIL -->
+    <button id="mobile-menu-btn" class="md:hidden fixed top-4 left-4 z-50 w-11 h-11 rounded-full bg-neutral-900/85 backdrop-blur-md border border-neutral-800 text-white flex items-center justify-center shadow-2xl focus:outline-none transition hover:bg-neutral-800">
+        <i class="fa-solid fa-bars text-lg"></i>
+    </button>
+
+    <!-- OVERLAY MÓVIL -->
+    <div id="sidebar-overlay" class="fixed inset-0 bg-black/80 backdrop-blur-md z-30 hidden md:hidden transition-opacity"></div>
+
+    <!-- BARRA LATERAL (SIDEBAR) -->
+    <aside id="sidebar" class="fixed md:static inset-y-0 left-0 w-72 bg-neutral-950/90 md:bg-neutral-950/50 backdrop-blur-2xl p-6 flex flex-col justify-between border-r border-neutral-900/60 z-40 transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out">
+        <div>
+            <!-- Logo / Título -->
+            <div class="flex items-center space-x-3 mb-8 pt-2 md:pt-0">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-accent to-emerald-400 flex items-center justify-center text-black font-extrabold text-xl shadow-xl shadow-accent/20">
+                    <i class="fa-solid fa-heart animate-pulse"></i>
+                </div>
+                <div>
+                    <span class="font-bold text-base tracking-tight block bg-gradient-to-r from-white via-neutral-200 to-neutral-400 bg-clip-text text-transparent">Nuestro Aniversario</span>
+                    <span class="text-xs text-accent font-semibold tracking-wide flex items-center gap-1">
+                        <span class="w-1.5 h-1.5 rounded-full bg-accent animate-ping"></span> Spotify Pro 04
+                    </span>
+                </div>
+            </div>
+
+            <!-- Navegación por Pestañas -->
+            <nav class="space-y-1.5" id="dashboard-nav">
+                <button data-target="reproductor" class="nav-btn w-full flex items-center space-x-4 py-3 px-4 rounded-2xl text-white bg-neutral-900/90 border border-neutral-800/80 transition font-medium text-sm group shadow-lg shadow-black/40">
+                    <i class="fa-solid fa-headphones w-5 text-base text-accent transition"></i>
+                    <span>Reproductor & Stats</span>
+                </button>
+                <button data-target="perfil" class="nav-btn w-full flex items-center space-x-4 py-3 px-4 rounded-2xl text-neutral-400 hover:text-white hover:bg-neutral-900/50 transition font-medium text-sm group border border-transparent">
+                    <i class="fa-solid fa-user-group w-5 text-base group-hover:text-accent transition"></i>
+                    <span>Perfil de Pareja</span>
+                </button>
+                <button data-target="pensamientos" class="nav-btn w-full flex items-center space-x-4 py-3 px-4 rounded-2xl text-neutral-400 hover:text-white hover:bg-neutral-900/50 transition font-medium text-sm group border border-transparent">
+                    <i class="fa-solid fa-feather w-5 text-base group-hover:text-accent transition"></i>
+                    <span>Mis Pensamientos</span>
+                </button>
+                <button data-target="planes" class="nav-btn w-full flex items-center space-x-4 py-3 px-4 rounded-2xl text-neutral-400 hover:text-white hover:bg-neutral-900/50 transition font-medium text-sm group border border-transparent">
+                    <i class="fa-solid fa-list-check w-5 text-base group-hover:text-accent transition"></i>
+                    <span>Próximos Planes</span>
+                </button>
+                <button data-target="album" class="nav-btn w-full flex items-center space-x-4 py-3 px-4 rounded-2xl text-neutral-400 hover:text-white hover:bg-neutral-900/50 transition font-medium text-sm group border border-transparent">
+                    <i class="fa-solid fa-images w-5 text-base group-hover:text-accent transition"></i>
+                    <span>Álbum de Fotos</span>
+                </button>
+                <button data-target="carta" class="nav-btn w-full flex items-center space-x-4 py-3 px-4 rounded-2xl text-neutral-400 hover:text-white hover:bg-neutral-900/50 transition font-medium text-sm group border border-transparent">
+                    <i class="fa-solid fa-envelope-open-text w-5 text-base group-hover:text-accent transition"></i>
+                    <span>Nuestra Carta</span>
+                </button>
+            </nav>
+        </div>
+
+        <div class="space-y-4">
+            <!-- Selector de Tema de Color -->
+            <div class="p-3 rounded-2xl bg-neutral-900/80 border border-neutral-800/80 flex items-center justify-between">
+                <span class="text-xs text-neutral-400 font-semibold">Tema Visual:</span>
+                <div class="flex space-x-2">
+                    <button onclick="setTheme('green')" class="w-5 h-5 rounded-full bg-[#1DB954] ring-2 ring-white/20 hover:scale-110 transition"></button>
+                    <button onclick="setTheme('pink')" class="w-5 h-5 rounded-full bg-[#ec4899] ring-2 ring-white/20 hover:scale-110 transition"></button>
+                    <button onclick="setTheme('blue')" class="w-5 h-5 rounded-full bg-[#3b82f6] ring-2 ring-white/20 hover:scale-110 transition"></button>
+                </div>
+            </div>
+
+            <!-- Widget Contador en Sidebar -->
+            <div class="p-4 rounded-2xl bg-gradient-to-b from-neutral-900/80 to-neutral-950 border border-neutral-800/60 shadow-inner">
+                <div class="flex items-center space-x-2 mb-1.5 text-accent">
+                    <i class="fa-solid fa-clock text-xs"></i>
+                    <span class="text-[11px] font-bold uppercase tracking-wider">Juntos desde</span>
+                </div>
+                <div id="sidebar-counter" class="text-xs font-semibold text-neutral-200">
+                    Calculando tiempo...
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="flex-1 overflow-y-auto h-screen">
+        <div class="max-w-5xl mx-auto p-4 sm:p-10 pt-16 md:pt-10">
+
+            <!-- ================= SECCIÓN 1: REPRODUCTOR ================= -->
+            <section id="reproductor" class="tab-content space-y-8 animate-fade-in">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-neutral-900/80 pb-6">
+                    <div>
+                        <span class="text-xs font-bold tracking-widest uppercase text-accent bg-accent/10 px-3 py-1 rounded-full border border-accent/20">Soundtrack Exclusivo</span>
+                        <h2 class="text-3xl font-extrabold mt-2 tracking-tight">Centro de Control Musical</h2>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="bg-neutral-900/40 backdrop-blur-md border border-neutral-800/80 px-4 py-3 rounded-2xl shadow-lg">
+                            <span class="text-[10px] text-neutral-400 uppercase font-bold tracking-wider block">Total Pistas</span>
+                            <span id="total-tracks-count" class="text-lg font-extrabold text-accent">3 Canciones</span>
+                        </div>
+                        <div class="bg-neutral-900/40 backdrop-blur-md border border-neutral-800/80 px-4 py-3 rounded-2xl shadow-lg">
+                            <span class="text-[10px] text-neutral-400 uppercase font-bold tracking-wider block">Conexión</span>
+                            <span class="text-lg font-extrabold text-white">100%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                    <!-- Reproductor Widget Pro -->
+                    <div class="lg:col-span-5 bg-gradient-to-b from-neutral-900/90 to-[#101010] rounded-[2.5rem] p-6 shadow-2xl border border-neutral-800/80 relative overflow-hidden">
+                        <div class="absolute -top-32 -right-32 w-64 h-64 bg-accent/15 rounded-full blur-[90px] pointer-events-none"></div>
+
+                        <div class="bg-white p-3.5 pb-6 rounded-2xl shadow-2xl text-black mb-6 relative group/card">
+                            <div class="aspect-square w-full overflow-hidden rounded-xl bg-neutral-100 mb-4 relative shadow-inner">
+                                <img id="current-cover" src="img/portada-principal.jpg" alt="Portada" class="w-full h-full object-cover transition duration-500 group-hover/card:scale-105">
+                                
+                                <!-- Ecualizador Animado -->
+                                <div id="eq-animation" class="absolute bottom-3 right-3 bg-black/75 backdrop-blur-md px-3.5 py-2 rounded-full flex items-end space-x-1 opacity-0 transition duration-300 shadow-lg">
+                                    <span class="eq-bar w-1 bg-accent rounded-full h-2"></span>
+                                    <span class="eq-bar w-1 bg-accent rounded-full h-4"></span>
+                                    <span class="eq-bar w-1 bg-accent rounded-full h-6"></span>
+                                    <span class="eq-bar w-1 bg-accent rounded-full h-3"></span>
+                                    <span class="eq-bar w-1 bg-accent rounded-full h-5"></span>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-end px-1">
+                                <div>
+                                    <h3 id="current-title" class="text-lg font-bold tracking-tight truncate max-w-[190px]">Cruel Summer</h3>
+                                    <p id="current-artist" class="text-neutral-500 text-xs font-bold uppercase tracking-wide mt-0.5">Nuestra Historia</p>
+                                </div>
+                                <button id="like-btn" class="text-neutral-300 hover:text-red-500 transition-all duration-300 text-2xl focus:outline-none transform hover:scale-125 active:scale-75">
+                                    <i class="fa-solid fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Barra de Progreso Dinámica -->
+                        <div class="space-y-2 mb-6 px-1">
+                            <div id="progress-container" class="w-full bg-neutral-800/80 h-3 rounded-full cursor-pointer relative overflow-hidden group/bar py-1 -my-1 touch-action-manipulation">
+                                <div class="w-full h-full bg-neutral-800 rounded-full relative">
+                                    <div id="progress" class="bg-accent h-full w-0 transition-all duration-75 relative rounded-full">
+                                        <div class="absolute right-0 top-1/2 -translate-y-1/2 w-3.5 h-3.5 bg-white rounded-full shadow opacity-0 group-hover/bar:opacity-100 transition scale-125"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex justify-between text-xs text-neutral-400 font-semibold select-none">
+                                <span id="current-time">0:00</span>
+                                <span id="total-duration" class="cursor-pointer hover:text-white transition" title="Haz clic para alternar tiempo restante">0:00</span>
+                            </div>
+                        </div>
+
+                        <!-- Controles -->
+                        <div class="flex items-center justify-between px-2 mb-5">
+                            <button id="shuffle-btn" class="text-neutral-400 hover:text-white transition text-base"><i class="fa-solid fa-shuffle"></i></button>
+                            <button id="prev-btn" class="text-neutral-200 hover:text-white transition text-lg hover:scale-110"><i class="fa-solid fa-backward-step"></i></button>
+                            <button id="play-btn" class="w-14 h-14 rounded-full bg-white text-black flex items-center justify-center text-xl hover:scale-105 active:scale-95 transition shadow-2xl shadow-white/10">
+                                <i id="play-icon" class="fa-solid fa-play ml-0.5"></i>
+                            </button>
+                            <button id="next-btn" class="text-neutral-200 hover:text-white transition text-lg hover:scale-110"><i class="fa-solid fa-forward-step"></i></button>
+                            <button id="repeat-btn" class="text-neutral-400 hover:text-white transition text-base"><i class="fa-solid fa-repeat"></i></button>
+                        </div>
+
+                        <!-- Control de Volumen -->
+                        <div class="flex items-center space-x-3 px-2 pt-4 border-t border-neutral-800/60">
+                            <i id="volume-icon" class="fa-solid fa-volume-high text-neutral-400 text-xs cursor-pointer"></i>
+                            <input id="volume-slider" type="range" min="0" max="1" step="0.01" value="1" class="w-full accent-accent h-2 bg-neutral-800 rounded-lg cursor-pointer touch-action-manipulation">
+                        </div>
+                    </div>
+
+                    <!-- Cola de Reproducción con Scroll Interno -->
+                    <div class="lg:col-span-7 bg-neutral-900/40 backdrop-blur-md rounded-[2.5rem] p-6 sm:p-8 border border-neutral-800/80 shadow-2xl">
+                        <div class="flex items-center justify-between mb-6 px-2">
+                            <div>
+                                <h4 class="text-sm font-bold uppercase tracking-wider text-white">Cola de Reproducción</h4>
+                                <p class="text-xs text-neutral-400">Pasa automáticamente a la siguiente al terminar</p>
+                            </div>
+                            <span class="text-xs text-accent font-bold bg-accent/10 px-3 py-1 rounded-full border border-accent/20">Auto-Play On</span>
+                        </div>
+                        <div id="playlist-container" class="space-y-2.5 max-h-[420px] overflow-y-auto pr-2 custom-scrollbar"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= SECCIÓN 2: PERFIL DE PAREJA ================= -->
+            <section id="perfil" class="tab-content hidden space-y-8 animate-fade-in">
+                <div class="flex items-center space-x-4 mb-6 border-b border-neutral-900/80 pb-6">
+                    <div class="p-3.5 rounded-2xl bg-accent/10 text-accent border border-accent/20 shadow-inner">
+                        <i class="fa-solid fa-user-group text-xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-3xl font-extrabold tracking-tight">Perfil de Pareja</h2>
+                        <p class="text-sm text-neutral-400">Nuestra tarjeta de presentación y estadísticas de amor</p>
+                    </div>
+                </div>
+
+                <!-- Tarjeta Principal de Perfil -->
+                <div class="bg-gradient-to-br from-neutral-900/90 to-neutral-950 border border-neutral-800/80 rounded-[2.5rem] p-8 shadow-2xl relative overflow-hidden">
+                    <div class="absolute -top-32 -left-32 w-64 h-64 bg-accent/10 rounded-full blur-[80px] pointer-events-none"></div>
+
+                    <div class="flex flex-col md:flex-row items-center justify-around gap-8 text-center md:text-left relative z-10">
+                        <!-- Persona 1 -->
+                        <div class="flex flex-col items-center">
+                            <div class="w-28 h-28 rounded-full p-1 bg-gradient-to-tr from-accent to-emerald-400 shadow-xl mb-4">
+                                <img src="img/foto1.jpg" alt="Avatar 1" class="w-full h-full object-cover rounded-full">
+                            </div>
+                            <h3 class="text-xl font-extrabold text-white">Alexander</h3>
+                            <span class="text-xs text-neutral-400 font-semibold mt-1">Ing. Software</span>
+                        </div>
+
+                        <!-- Insignia Central -->
+                        <div class="flex flex-col items-center space-y-2">
+                            <div class="w-14 h-14 rounded-full bg-accent text-black flex items-center justify-center text-xl shadow-lg shadow-accent/30 animate-pulse">
+                                <i class="fa-solid fa-infinity"></i>
+                            </div>
+                            <span class="text-xs font-bold uppercase tracking-widest text-accent">Nivel de Conexión</span>
+                            <span class="text-sm font-extrabold text-white">Eterno</span>
+                        </div>
+
+                        <!-- Persona 2 -->
+                        <div class="flex flex-col items-center">
+                            <div class="w-28 h-28 rounded-full p-1 bg-gradient-to-tr from-accent to-emerald-400 shadow-xl mb-4">
+                                <img src="img/foto4.jpg" alt="Avatar 2" class="w-full h-full object-cover rounded-full">
+                            </div>
+                            <h3 class="text-xl font-extrabold text-white">Daleshka</h3>
+                            <span class="text-xs text-neutral-400 font-semibold mt-1">La dueña de mis días</span>
+                        </div>
+                    </div>
+
+                    <!-- Estadísticas Inferiores del Perfil -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-10 pt-8 border-t border-neutral-800/80 text-center">
+                        <div class="bg-neutral-900/60 p-4 rounded-2xl border border-neutral-800">
+                            <span class="text-xs text-neutral-400 uppercase font-semibold block">Canciones del Alma</span>
+                            <span id="profile-tracks-count" class="text-2xl font-black text-accent mt-1 block">6</span>
+                        </div>
+                        <div class="bg-neutral-900/60 p-4 rounded-2xl border border-neutral-800">
+                            <span class="text-xs text-neutral-400 uppercase font-semibold block">Pensamientos Escritos</span>
+                            <span id="profile-thoughts-count" class="text-2xl font-black text-accent mt-1 block">2</span>
+                        </div>
+                        <div class="bg-neutral-900/60 p-4 rounded-2xl border border-neutral-800">
+                            <span class="text-xs text-neutral-400 uppercase font-semibold block">Planes Cumplidos</span>
+                            <span id="profile-plans-count" class="text-2xl font-black text-accent mt-1 block">1</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= SECCIÓN 3: MIS PENSAMIENTOS (ESTÁTICO) ================= -->
+            <section id="pensamientos" class="tab-content hidden space-y-8 animate-fade-in">
+                <div class="flex items-center space-x-4 mb-6 border-b border-neutral-900/80 pb-6">
+                    <div class="p-3.5 rounded-2xl bg-accent/10 text-accent border border-accent/20 shadow-inner">
+                        <i class="fa-solid fa-feather text-xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-3xl font-extrabold tracking-tight">Mis Pensamientos</h2>
+                        <p class="text-sm text-neutral-400">Bitácora de momentos y reflexiones especiales</p>
+                    </div>
+                </div>
+
+                <div id="thoughts-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-6"></div>
+            </section>
+
+            <!-- ================= SECCIÓN 4: PRÓXIMOS PLANES (ESTÁTICO) ================= -->
+            <section id="planes" class="tab-content hidden space-y-8 animate-fade-in">
+                <div class="flex items-center space-x-4 mb-6 border-b border-neutral-900/80 pb-6">
+                    <div class="p-3.5 rounded-2xl bg-accent/10 text-accent border border-accent/20 shadow-inner">
+                        <i class="fa-solid fa-list-check text-xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-3xl font-extrabold tracking-tight">Próximos Planes (Bucket List)</h2>
+                        <p class="text-sm text-neutral-400">Metas y aventuras que nos faltan por cumplir juntos</p>
+                    </div>
+                </div>
+
+                <div id="plans-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-6"></div>
+            </section>
+
+            <!-- ================= SECCIÓN 5: ÁLBUM DE FOTOS (BENTO GRID PREMIUM ESTÁTICO) ================= -->
+            <section id="album" class="tab-content hidden space-y-8 animate-fade-in pb-12">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-neutral-900/80 pb-6">
+                    <div class="flex items-center space-x-4">
+                        <div class="p-3.5 rounded-2xl bg-accent/10 text-accent border border-accent/20 shadow-inner">
+                            <i class="fa-solid fa-camera-retro text-xl"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-3xl font-extrabold tracking-tight">Galería de Recuerdos</h2>
+                            <p class="text-sm text-neutral-400">Nuestros momentos favoritos en una experiencia visual única</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filtros Minimalistas Estilizados -->
+                <div class="flex flex-wrap gap-2.5 pt-2" id="photo-filters">
+                    <button data-filter="all" class="filter-btn px-5 py-2.5 rounded-xl text-xs font-bold bg-accent text-black transition shadow-md hover:opacity-90">Todos</button>
+                    <button data-filter="viajes" class="filter-btn px-5 py-2.5 rounded-xl text-xs font-semibold bg-neutral-900 text-neutral-400 hover:text-white border border-neutral-800/80 transition">Viajes</button>
+                    <button data-filter="momentos" class="filter-btn px-5 py-2.5 rounded-xl text-xs font-semibold bg-neutral-900 text-neutral-400 hover:text-white border border-neutral-800/80 transition">Momentos</button>
+                </div>
+
+                <!-- Grid de Fotos Optimizado -->
+                <div id="photo-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+            </section>
+
+            <!-- ================= SECCIÓN 6: CARTA DE AMOR ================= -->
+            <section id="carta" class="tab-content hidden space-y-8 pb-16 animate-fade-in">
+                <div class="flex items-center space-x-4 mb-6 border-b border-neutral-900/80 pb-6">
+                    <div class="p-3.5 rounded-2xl bg-accent/10 text-accent border border-accent/20 shadow-inner">
+                        <i class="fa-solid fa-heart-circle-bolt text-xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-3xl font-extrabold tracking-tight">Carta & Razones</h2>
+                        <p class="text-sm text-neutral-400">Palabras sinceras y razones aleatorias de por qué te amo</p>
+                    </div>
+                </div>
+
+                <!-- Generador de Razones de Amor -->
+                <div class="bg-gradient-to-r from-neutral-900 to-neutral-950 border border-neutral-800/80 p-6 sm:p-8 rounded-[2.5rem] shadow-xl text-center space-y-4">
+                    <span class="text-xs font-bold uppercase tracking-widest text-accent">Sorpresa Diaria</span>
+                    <h3 id="reason-box" class="text-lg sm:text-xl font-semibold text-neutral-200 min-h-[60px] flex items-center justify-center">
+                        Haz clic en el botón para descubrir una razón por la que te amo...
+                    </h3>
+                    <button onclick="mostrarRazonAleatoria()" class="bg-accent hover:opacity-90 text-black font-bold px-6 py-3 rounded-2xl transition shadow-lg shadow-accent/20 text-sm inline-flex items-center space-x-2">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        <span>Generar Razón de Amor</span>
+                    </button>
+                </div>
+
+                <div class="bg-gradient-to-br from-neutral-900/90 to-neutral-950 border border-neutral-800/80 p-8 sm:p-12 rounded-[2.5rem] shadow-2xl relative overflow-hidden space-y-6">
+                    <div class="absolute -bottom-10 -right-10 text-neutral-800/30 text-9xl pointer-events-none">
+                        <i class="fa-solid fa-quote-right"></i>
+                    </div>
+                    
+                    <div class="space-y-5 text-neutral-300 leading-relaxed text-sm sm:text-base font-light relative z-10">
+                        <p class="font-bold text-white text-xl">Mi amor,</p>
+                        <p>Escribir esto me hace dar cuenta de lo afortunado/a que soy por tenerte en mi vida. Cada día a tu lado es una nueva aventura y un recordatorio constante de lo bonito que es compartir los momentos felices, las risas espontáneas y también superar cualquier reto juntos como equipo.</p>
+                        <p>Gracias infinitas por tu paciencia, por tus detalles llenos de cariño, por tus abrazos que tienen el poder de curar cualquier día pesado y por hacer que la rutina se convierta siempre en algo extraordinario y memorable.</p>
+                        <p>Este reproductor y este pequeño espacio digital son solo una muestra creativa de cómo suena nuestra historia: llena de ritmo, de pausas felices, de miradas cómplices y de una banda sonora que no me cansaré de repetir.</p>
+                        <p class="pt-4 font-semibold text-accent text-lg">Te amo hoy, mañana y siempre. ¡Feliz Aniversario! 🤍</p>
+                    </div>
+
+                    <div class="pt-6 border-t border-neutral-800/80 flex flex-col sm:flex-row items-center justify-between gap-4">
+                        <span class="text-xs text-neutral-500 uppercase tracking-widest font-semibold">Para la persona de mi vida</span>
+                        <div class="flex items-center space-x-2 text-accent">
+                            <i class="fa-solid fa-heart text-sm animate-pulse"></i>
+                            <span class="text-sm font-bold tracking-wide">Eternamente tuyo/a</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- LIGHTBOX MODAL -->
+    <div id="lightbox-modal" class="fixed inset-0 bg-black/90 backdrop-blur-xl z-50 hidden flex items-center justify-center p-4">
+        <button id="close-lightbox" class="absolute top-6 right-6 text-white text-3xl hover:text-accent transition focus:outline-none">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <img id="lightbox-img" src="" alt="Ampliada" class="max-w-full max-h-[85vh] object-contain rounded-2xl shadow-2xl border border-neutral-800">
+    </div>
+
+    <!-- Audio Oculto -->
+    <audio id="audio-player" preload="auto"></audio>
+
+    <!-- Script principal -->
+    <script src="js/script.js"></script>
+</body>
+</html>
