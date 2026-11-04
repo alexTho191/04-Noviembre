@@ -244,17 +244,17 @@ function renderPlaylist() {
         const div = document.createElement('div');
         div.className = `flex items-center justify-between p-3.5 rounded-2xl cursor-pointer transition-all duration-200 ${isCurrent ? 'bg-neutral-800/90 border border-neutral-700/80 shadow-xl' : 'hover:bg-neutral-800/40 border border-transparent'}`;
         div.innerHTML = `
-            <div class="flex items-center space-x-3.5">
-                <span class="text-xs font-bold ${isCurrent ? 'text-accent' : 'text-neutral-500'} w-5 text-center">${index + 1}</span>
+            <div class="flex items-center space-x-3.5 overflow-hidden pr-2">
+                <span class="text-xs font-bold ${isCurrent ? 'text-accent' : 'text-neutral-500'} w-5 text-center shrink-0">${index + 1}</span>
                 <div class="relative w-11 h-11 rounded-xl overflow-hidden shrink-0 shadow-md">
                     <img src="${track.cover}" class="w-full h-full object-cover" alt="cover">
                 </div>
-                <div>
-                    <h4 class="text-sm font-bold ${isCurrent ? 'text-accent' : 'text-white'} truncate max-w-[150px] sm:max-w-[190px]">${track.title}</h4>
-                    <p class="text-xs text-neutral-400 font-medium">${track.artist}</p>
+                <div class="overflow-hidden">
+                    <h4 class="text-sm font-bold ${isCurrent ? 'text-accent' : 'text-white'} truncate">${track.title}</h4>
+                    <p class="text-xs text-neutral-400 font-medium truncate">${track.artist}</p>
                 </div>
             </div>
-            <div class="flex items-center space-x-3">
+            <div class="flex items-center space-x-3 shrink-0">
                 <button onclick="event.stopPropagation(); toggleSongLike(${track.id})" class="text-lg transition transform hover:scale-125 ${isLiked ? 'text-red-500' : 'text-neutral-600 hover:text-neutral-400'}">
                     <i class="fa-${isLiked ? 'solid' : 'regular'} fa-heart"></i>
                 </button>
@@ -440,7 +440,7 @@ likeBtn.addEventListener('click', () => {
     toggleSongLike(currentTrack.id);
 });
 
-// --- PENSAMIENTOS ESTÁTICOS (CONTROLADOS DESDE EL CÓDIGO) ---
+// --- PENSAMIENTOS ESTÁTICOS ---
 const thoughtsList = [
     { tag: "El Comienzo", title: "El día que todo cambió", desc: "Desde que empecé a conocerte, supe que había algo muy especial en ti." },
     { tag: "Complicidad", title: "Risas y silencios", desc: "No hay nadie con quien el tiempo pase tan volando. Contigo puedo ser 100% yo, valorando cada momento y cada conversación." }
@@ -470,7 +470,7 @@ function renderThoughts() {
 }
 renderThoughts();
 
-// --- PRÓXIMOS PLANES ESTÁTICOS (CONTROLADOS DESDE EL CÓDIGO) ---
+// --- PRÓXIMOS PLANES ESTÁTICOS ---
 const plansList = [
     { title: "Viaje a la playa", desc: "Pendiente cuando se pueda.", completed: false },
     { title: "Cenar en nuestro restaurante favorito", desc: "Amorcito Falta escoger nuestro restaurante favorito jajaja", completed: false },
@@ -502,7 +502,7 @@ function renderPlans() {
 }
 renderPlans();
 
-// --- GALERÍA DE FOTOS ESTÁTICA (BENTO GRID) ---
+// --- GALERÍA DE FOTOS ESTÁTICA ---
 const photoList = [
     { url: "img/foto1.jpg", title: "Nuestra primera foto juntos", category: "momentos" },
     { url: "img/foto2.jpg", title: "Heladito saliendo del trabajo", category: "momentos" },
