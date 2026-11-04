@@ -102,103 +102,103 @@ const playlist = [
         artist: "Juanes",
         cover: "img/foto4.jpg",
         src: "audio/cancion4.mp3",
-        duration: "4:23"
+        duration: "3:12"
     },
     {
         id: 5,
-        title: "Tutu",
-        artist: "Camilo & Pedro Capó",
+        title: "Tu Jardin Con Enanitos",
+        artist: "Melendi",
         cover: "img/foto5.jpg",
-        src: "audio/foto5.mp3",
-        duration: "2:55"
+        src: "audio/cancion5.mp3",
+        duration: "4:27"
     },
     {
         id: 6,
-        title: "I Wanna Be Yours",
-        artist: "Arctic Monkeys",
+        title: "Aprender a Quererte",
+        artist: "Morat",
         cover: "img/foto6.jpg",
-        src: "audio/foto6.mp3",
-        duration: "3:03"
+        src: "audio/cancion6.mp3",
+        duration: "3:50"
     },
     {
         id: 7,
-        title: "A Donde Vamos",
-        artist: "Morat",
+        title: "Hecha Pa' Mi",
+        artist: "Grupo Frontera",
         cover: "img/foto7.jpg",
-        src: "audio/cancion1.mp3",
-        duration: "3:22"
+        src: "audio/cancion7.mp3",
+        duration: "3:14"
     },
     {
         id: 8,
-        title: "Te Regalo",
-        artist: "Rels B",
+        title: "Tu Llenas mi Vida",
+        artist: "Kalimba",
         cover: "img/foto8.jpg",
-        src: "audio/cancion2.mp3",
-        duration: "3:15"
+        src: "audio/cancion8.mp3",
+        duration: "3:37"
     },
     {
         id: 9,
-        title: "La Mitad",
-        artist: "Nuestros Recuerdos",
+        title: "Es Por Ti",
+        artist: "Juanes",
         cover: "img/foto9.jpg",
-        src: "audio/cancion3.mp3",
+        src: "audio/cancion9.mp3",
         duration: "3:50"
     },
     {
         id: 10,
-        title: "Perfect",
-        artist: "Ed Sheeran",
+        title: "Yo Contigo, Tú Conmigo",
+        artist: "Morat & Álvaro Soler",
         cover: "img/foto10.jpg",
-        src: "audio/cancion1.mp3",
-        duration: "4:23"
+        src: "audio/cancion10.mp3",
+        duration: "2:57"
     },
     {
         id: 11,
-        title: "Tutu",
-        artist: "Camilo & Pedro Capó",
+        title: "Mi Vida Entera",
+        artist: "Morat",
         cover: "img/foto11.jpg",
-        src: "audio/foto5.mp3",
-        duration: "2:55"
+        src: "audio/cancion11.mp3",
+        duration: "3:10"
     },
     {
         id: 12,
-        title: "I Wanna Be Yours",
-        artist: "Arctic Monkeys",
+        title: "Amarte a la Antigua",
+        artist: "Pedro Fernández",
         cover: "img/foto12.jpg",
-        src: "audio/foto6.mp3",
-        duration: "3:03"
+        src: "audio/cancion12.mp3",
+        duration: "3:38"
     },
     {
         id: 13,
-        title: "A Donde Vamos",
-        artist: "Morat",
+        title: "Me Cambiaste la Vida",
+        artist: "Rio Roma",
         cover: "img/foto13.jpg",
         src: "audio/cancion1.mp3",
         duration: "3:22"
     },
     {
         id: 14,
-        title: "Te Regalo",
-        artist: "Rels B",
+        title: "Te Mando Flores",
+        artist: "Fonseca",
         cover: "img/foto14.jpg",
-        src: "audio/cancion2.mp3",
-        duration: "3:15"
+        src: "audio/cancion14.mp3",
+        duration: "3:48"
     },
     {
         id: 15,
-        title: "La Mitad",
-        artist: "Nuestros Recuerdos",
+        title: "Mix Amor Sincero",
+        artist: "Amor Rebelde",
         cover: "img/foto15.jpg",
-        src: "audio/cancion3.mp3",
-        duration: "3:50"
+        src: "audio/cancion15.mp3",
+        duration: "5:16"
     },
     {
         id: 16,
-        title: "Perfect",
-        artist: "Ed Sheeran",
+        title: "Humanos a Marte",
+        artist: "Chayanne",
         cover: "img/foto16.jpg",
-        src: "audio/cancion1.mp3",
-        duration: "4:23"
+        src: "audio/cancion16.mp3",
+        duration: "3:40"
     }
 ];
 
@@ -442,9 +442,8 @@ likeBtn.addEventListener('click', () => {
 
 // --- PENSAMIENTOS ESTÁTICOS (CONTROLADOS DESDE EL CÓDIGO) ---
 const thoughtsList = [
-    { tag: "El Comienzo", title: "El día que todo cambió", desc: "Desde el primer instante supe que ibas a ser una persona sumamente especial en mi vida. Tu sonrisa tiene el poder de arreglar cualquier día gris." },
-    { tag: "Complicidad", title: "Risas y silencios cómodos", desc: "No hay nadie con quien el tiempo pase tan volando. Contigo puedo ser 100% yo mismo, valorando cada broma y charla profunda." },
-    { tag: "Momentos", title: "Nuestras locuras juntos", desc: "Cada aventura, cada salida y cada pequeña tontería a tu lado se convierte en mi recuerdo favorito del mundo." }
+    { tag: "El Comienzo", title: "El día que todo cambió", desc: "Desde que empecé a conocerte, supe que había algo muy especial en ti." },
+    { tag: "Complicidad", title: "Risas y silencios", desc: "No hay nadie con quien el tiempo pase tan volando. Contigo puedo ser 100% yo, valorando cada momento y cada conversación." }
 ];
 
 function renderThoughts() {
@@ -473,9 +472,9 @@ renderThoughts();
 
 // --- PRÓXIMOS PLANES ESTÁTICOS (CONTROLADOS DESDE EL CÓDIGO) ---
 const plansList = [
-    { title: "Viaje a la playa un fin de semana", desc: "Pendiente para el verano", completed: false },
-    { title: "Cenar en nuestro restaurante favorito", desc: "Este próximo viernes", completed: true },
-    { title: "Ver maratón de nuestras películas sci-fi", desc: "Este fin de semana", completed: false }
+    { title: "Viaje a la playa", desc: "Pendiente cuando se pueda.", completed: false },
+    { title: "Cenar en nuestro restaurante favorito", desc: "Amorcito Falta escoger nuestro restaurante favorito jajaja", completed: false },
+    { title: "Ver maratón de nuestras películas", desc: "Lunes 09 de Noviembre lo es todo bb", completed: false }
 ];
 
 function renderPlans() {
@@ -505,12 +504,22 @@ renderPlans();
 
 // --- GALERÍA DE FOTOS ESTÁTICA (BENTO GRID) ---
 const photoList = [
-    { url: "img/foto1.jpg", title: "Nuestro primer viaje juntos 🌄", category: "viajes" },
-    { url: "img/foto2.jpg", title: "Esa tarde inolvidable de café ☕", category: "momentos" },
-    { url: "img/foto3.jpg", title: "Celebrando cada pequeño detalle ✨", category: "momentos" },
-    { url: "img/foto4.jpg", title: "Momentos mágicos a tu lado 🤍", category: "momentos" },
-    { url: "img/foto5.jpg", title: "Aventura por nuevos lugares 🎒", category: "viajes" },
-    { url: "img/foto6.jpg", title: "Risas que lo curan todo 🌟", category: "momentos" }
+    { url: "img/foto1.jpg", title: "Nuestra primera foto juntos", category: "momentos" },
+    { url: "img/foto2.jpg", title: "Heladito saliendo del trabajo", category: "momentos" },
+    { url: "img/foto3.jpg", title: "Mi bebé dandolo todo en la cuatrimoto", category: "viajes" },
+    { url: "img/foto4.jpg", title: "Simplemente eres Hermosa", category: "viajes" },
+    { url: "img/foto5.jpg", title: "Uyuyuy a donde tan guapa ", category: "viajes" },
+    { url: "img/foto6.jpg", title: "Yo planeando caldito sin saber que no le gustaba el fideo jajaj", category: "momentos" },
+    { url: "img/foto7.jpg", title: "Fotito de nuestro viaje", category: "viajes" },
+    { url: "img/foto8.jpg", title: "Me invitaste Heladito", category: "viajes" },
+    { url: "img/foto9.jpg", title: "Mi bebé jamás espectadora", category: "viajes" },
+    { url: "img/foto10.jpg", title: "Agarrados de la mano", category: "viajes" },
+    { url: "img/foto11.jpg", title: "Cevichito de trucha congelada jajajaja", category: "viajes" },
+    { url: "img/foto12.jpg", title: "Noche de juegos uuu", category: "momentos" },
+    { url: "img/foto13.jpg", title: "Heladito de nuevo jijiji", category: "momentos" },
+    { url: "img/foto14.jpg", title: "Una sorpresa no tan sorpresiva jajajajaja", category: "momentos" },
+    { url: "img/foto15.jpg", title: "Dile a Goku que me enseñe a teletransportarme", category: "momentos" },
+    { url: "img/foto16.jpg", title: "Te quierooooooooooo", category: "momentos" }
 ];
 
 function renderPhotos(filter = 'all') {
